@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Employees may only see / write their own GPS points. -->
+    <record id="hr_attendance_gps_point_rule_own" model="ir.rule">
+        <field name="name">Attendance GPS Point: own records</field>
+        <field name="model_id" ref="model_hr_attendance_gps_point"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Attendance managers may see all GPS points. -->
+    <record id="hr_attendance_gps_point_rule_manager" model="ir.rule">
+        <field name="name">Attendance GPS Point: manager all records</field>
+        <field name="model_id" ref="model_hr_attendance_gps_point"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_attendance.group_hr_attendance_manager'))]"/>
+    </record>
+</odoo>

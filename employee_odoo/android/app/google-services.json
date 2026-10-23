@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "865767692343",
+    "project_id": "hrms-app-11981",
+    "storage_bucket": "hrms-app-11981.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865767692343:android:910d5ea0f28661e02547b2",
+        "android_client_info": {
+          "package_name": "com.kodoo.hrms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN7drVxO6V39epY_eJR8v9EVI5IrD2nW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

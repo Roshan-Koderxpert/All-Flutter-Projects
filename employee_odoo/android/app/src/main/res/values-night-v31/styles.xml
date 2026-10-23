@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Needed as its own qualifier bucket: Android ranks the `night` qualifier
+         above `v31`, so on a dark-mode Android 12+ device `values-night` would
+         win over `values-v31` and the system-splash attributes below would
+         never be applied. This file makes dark mode behave exactly like light.
+         Keep it in sync with values-v31/styles.xml. -->
+    <style name="LaunchTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_no_icon</item>
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ replaces the launch window with its own system splash
+         screen. Painting it the same white as the splash video, with a
+         transparent icon, makes it indistinguishable from the video's first
+         frame instead of a blue screen shown before it. -->
+    <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_no_icon</item>
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Window shown from process start until Flutter's first frame. White for
+         the same reason — this was the second flash before the splash. -->
+    <style name="NormalTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+    </style>
+</resources>

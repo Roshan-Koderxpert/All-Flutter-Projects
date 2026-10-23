@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- GPS point list (managers / debugging) -->
+    <record id="view_hr_attendance_gps_point_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.gps.point.tree</field>
+        <field name="model">hr.attendance.gps.point</field>
+        <field name="arch" type="xml">
+            <tree string="GPS Points">
+                <field name="employee_id"/>
+                <field name="attendance_id"/>
+                <field name="sequence"/>
+                <field name="point_time"/>
+                <field name="latitude"/>
+                <field name="longitude"/>
+                <field name="accuracy"/>
+                <field name="speed"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_attendance_gps_point_form" model="ir.ui.view">
+        <field name="name">hr.attendance.gps.point.form</field>
+        <field name="model">hr.attendance.gps.point</field>
+        <field name="arch" type="xml">
+            <form string="GPS Point">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="attendance_id"/>
+                            <field name="employee_id"/>
+                            <field name="sequence"/>
+                            <field name="point_time"/>
+                        </group>
+                        <group>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                            <field name="accuracy"/>
+                            <field name="altitude"/>
+                            <field name="speed"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_attendance_gps_point" model="ir.actions.act_window">
+        <field name="name">Attendance GPS Points</field>
+        <field name="res_model">hr.attendance.gps.point</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_attendance_gps_point"
+        name="GPS Route Points"
+        parent="hr_attendance.menu_hr_attendance_root"
+        action="action_hr_attendance_gps_point"
+        groups="hr_attendance.group_hr_attendance_manager"
+        sequence="90"/>
+
+    <!-- Surface the route on the attendance form -->
+    <record id="view_hr_attendance_form_gps" model="ir.ui.view">
+        <field name="name">hr.attendance.form.gps</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="GPS Route" name="gps_route_group">
+                    <field name="gps_point_count"/>
+                    <field name="gps_distance_km"/>
+                </group>
+                <separator string="Route Map"/>
+                <field name="gps_route_json" widget="attendance_gps_map" nolabel="1"/>
+                <group string="GPS Points" name="gps_points_group">
+                    <field name="gps_point_ids" nolabel="1" readonly="1">
+                        <tree>
+                            <field name="sequence"/>
+                            <field name="point_time"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                            <field name="accuracy"/>
+                            <field name="speed"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

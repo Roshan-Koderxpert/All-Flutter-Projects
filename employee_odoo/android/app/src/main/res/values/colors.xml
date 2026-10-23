@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <!-- Every pre-Flutter surface (Android 12+ system splash, launch window,
+         and the window behind the Flutter UI while it boots) is painted this
+         colour so it matches the first frame of the splash video. Keeping them
+         identical means the user sees one continuous screen instead of a blue
+         flash, then a white flash, then the splash. -->
+    <color name="splash_background">#FFFFFFFF</color>
+</resources>

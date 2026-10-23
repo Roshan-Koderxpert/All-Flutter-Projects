@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Explicit white rather than ?android:colorBackground: the themed value goes
+     dark when the OS is in dark mode, which flashed a dark screen before the
+     white splash video. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+</layer-list>
